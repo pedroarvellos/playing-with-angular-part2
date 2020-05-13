@@ -23,8 +23,9 @@
       >
     </div>
   </div>
-  <button type="submit" class="btn btn-primary" [disabled]="form.invalid">
+  <button type="submit" class="btn btn-primary" [disabled]="form.invalid || name.pristine">
     {{ selectedPerson ? "Edit" : "Add" }}
   </button>
+  <button *ngIf="selectedPerson" type="button" class="btn btn-primary" (click)="onCancel()">Cancel</button>
   <button *ngIf="selectedPerson" type="button" class="btn btn-danger" (click)="onDelete()">Delete</button>
 </form>

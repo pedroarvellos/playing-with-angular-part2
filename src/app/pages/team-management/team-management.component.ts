@@ -23,6 +23,11 @@ export class TeamManagementComponent implements OnInit {
     this.selectedPerson = person;
   }
 
+  onCancel() {
+    this.team.push(this.selectedPerson);
+    this.selectedPerson = null;
+  }
+
   onAdd(person: Person) {
     this.cardService.addPerson(person).subscribe(
       (res: Person) => this.team.push(res),

@@ -2,6 +2,6 @@ button:disabled {
     cursor: not-allowed;
 }
 
-button:last-child {
+button:not(:first-child) {
     margin-left: 5px;
 }
