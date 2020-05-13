@@ -40,4 +40,15 @@ export class TeamManagementComponent implements OnInit {
 
     this.selectedPerson = null;
   }
+
+  onDelete(id: number) {
+    this.cardService.deletePerson(id).subscribe(
+      (id: number) => {
+        this.team = this.team.filter(person => id !== person.id);
+      },
+      (err) => console.log(err)
+    );
+
+    this.selectedPerson = null;
+  }
 }

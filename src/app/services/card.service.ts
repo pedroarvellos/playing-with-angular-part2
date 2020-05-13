@@ -37,4 +37,11 @@ export class CardService {
       catchError((err) => err)
     );
   }
+
+  deletePerson(id: number) {
+    return this.httpClient.delete<number>(this.address + `/${id}`).pipe(
+      map((res) => res),
+      catchError((err) => err)
+    );
+  }
 }

@@ -20,6 +20,7 @@ export class InputComponent implements OnInit, OnChanges {
   @Input("selectedPerson") selectedPerson: Person;
   @Output("add") add = new EventEmitter<Person>();
   @Output("update") update = new EventEmitter<Person>();
+  @Output("delete") delete = new EventEmitter<number>();
   maxValue: number = 30;
   form: FormGroup;
 
@@ -72,6 +73,13 @@ export class InputComponent implements OnInit, OnChanges {
 
     this.update.emit(person);
 
+    this.role.reset();
+    this.name.reset();
+  }
+
+  onDelete() {
+    this.delete.emit(this.selectedPerson.id);
+    
     this.role.reset();
     this.name.reset();
   }
