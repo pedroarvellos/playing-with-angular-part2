@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { Person, CardService } from 'src/app/services/card.service';
+import { Person, TeamService } from '../../services/card/team.service';
 
 @Component({
   selector: "app-team-management",
@@ -10,7 +10,7 @@ export class TeamManagementComponent implements OnInit {
   team: Person[] = [];
   selectedPerson: Person;
 
-  constructor(private cardService: CardService) {}
+  constructor(private cardService: TeamService) {}
 
   ngOnInit() {
     this.cardService.getTeam().subscribe((team: Person[]) => {

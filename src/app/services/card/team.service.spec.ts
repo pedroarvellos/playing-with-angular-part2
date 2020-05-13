@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { CardService } from './card.service';
+import { TeamService } from './team.service';
 
 describe('CardService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: CardService = TestBed.get(CardService);
+    const service: TeamService = TestBed.get(TeamService);
     expect(service).toBeTruthy();
   });
 });

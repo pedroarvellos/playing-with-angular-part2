@@ -1,3 +1,10 @@
-<div class="container">
-  <app-team-management></app-team-management>
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand">Teams</a>
+  <div>
+    <a class="navbar-brand" routerLinkActive="active current" routerLink="/teams">Manage Team</a>
+    <a class="navbar-brand" routerLinkActive="active current"  routerLink="/logs">Logs</a>
+  </div>
+</nav>
+<div class="container card" style="padding: 1%;">
+  <router-outlet></router-outlet>
 </div>

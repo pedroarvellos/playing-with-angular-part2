@@ -9,7 +9,7 @@ import {
   EventEmitter,
 } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { Person } from "../../../../services/card.service";
+import { Person } from "../../../../services/card/team.service";
 
 @Component({
   selector: "app-input",

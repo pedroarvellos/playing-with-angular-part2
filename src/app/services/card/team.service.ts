@@ -12,7 +12,7 @@ export type Person = {
 @Injectable({
   providedIn: "root",
 })
-export class CardService {
+export class TeamService {
   private address: string = "http://localhost:8080/roles";
 
   constructor(private httpClient: HttpClient) {}
