@@ -1,4 +1,4 @@
-<div appHoverCard="#F8F8F8" class="card" style="width: 15rem; min-height: 130px;" (click)="selectCard()">
+<div appHoverCard="#F8F8F8" class="card" style="width: 15rem; min-height: 130px;" (click)="selectedPerson ? null : selectCard()">
   <div class="card-body">
     <h5 class="card-title">{{ info.role }}</h5>
     <p class="card-text">

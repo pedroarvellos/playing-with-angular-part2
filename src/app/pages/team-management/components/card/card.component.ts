@@ -7,6 +7,7 @@ import { Component, Input, EventEmitter, Output } from "@angular/core";
 })
 export class CardComponent {
   @Input("info") info;
+  @Input("selectedPerson") selectedPerson;
   @Output("selectCardEvent") selectCardEvent = new EventEmitter();
 
   selectCard() {
