@@ -1,27 +1,40 @@
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Injectable } from "@angular/core";
+import { Observable } from "rxjs";
+import { map, catchError } from "rxjs/operators";
+import { HttpClient } from "@angular/common/http";
 
 export type Person = {
+  id?: number;
   role: String;
   name: String;
 };
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class CardService {
-  private team: Person[] = [];
+  private address: string = "http://localhost:8080/roles";
+
+  constructor(private httpClient: HttpClient) {}
 
   getTeam() {
-    return new Observable((subscriber) => {
-      subscriber.next(this.team);
-    })
+    return this.httpClient.get<Person[]>(this.address).pipe(
+      map((res) => res),
+      catchError((err) => err)
+    );
   }
 
   addPerson(person: Person) {
-    return new Observable((subscriber) => {
-      this.team.push(person);
-      subscriber.next(person);
-    })
+    return this.httpClient.post<Person>(this.address, person).pipe(
+      map((res) => res),
+      catchError((err) => err)
+    );
+  }
+
+  updatePerson(person: Person) {
+    return this.httpClient.put<Person>(this.address, person).pipe(
+      map((res) => res),
+      catchError((err) => err)
+    );
   }
 }

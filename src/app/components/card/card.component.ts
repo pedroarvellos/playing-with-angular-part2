@@ -1,4 +1,4 @@
-import { Component, Input } from "@angular/core";
+import { Component, Input, EventEmitter, Output } from "@angular/core";
 
 @Component({
   selector: "app-card",
@@ -7,4 +7,9 @@ import { Component, Input } from "@angular/core";
 })
 export class CardComponent {
   @Input("info") info;
+  @Output("selectCardEvent") selectCardEvent = new EventEmitter();
+
+  selectCard() {
+    this.selectCardEvent.emit(this.info);
+  }
 }

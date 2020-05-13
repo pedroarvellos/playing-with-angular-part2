@@ -1,0 +1,16 @@
+<div class="card text-center" *ngIf="team.length > 0">
+  <div class="card-body d-flex justify-content-center flex-wrap">
+    <div *ngFor="let person of team">
+      <app-card
+        [info]="person"
+        (selectCardEvent)="onSelectCard($event)"
+      ></app-card>
+    </div>
+  </div>
+</div>
+<hr />
+<app-input
+  [selectedPerson]="selectedPerson"
+  (add)="onAdd($event)"
+  (update)="onUpdate($event)"
+></app-input>

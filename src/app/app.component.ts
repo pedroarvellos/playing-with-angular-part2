@@ -6,14 +6,5 @@ import { CardService, Person } from "./services/card.service";
   templateUrl: "./app.component.html",
   styleUrls: ["./app.component.scss"],
 })
-export class AppComponent implements OnInit {
-  team: Person[] = [];
-
-  constructor(private cardService: CardService) {}
-
-  ngOnInit() {
-    this.cardService.getTeam().subscribe((team: Person[]) => {
-      this.team = team;
-    })
-  }
+export class AppComponent {
 }
