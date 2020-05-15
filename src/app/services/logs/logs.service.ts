@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { map, catchError } from "rxjs/operators";
+import { environment } from "../../../environments/environment";
 
 export type Log = {
   id: string;
@@ -11,11 +12,11 @@ export type Log = {
   providedIn: "root",
 })
 export class LogsService {
-  private address: string = "http://localhost:8080/logs";
+  private address: string = "/logs";
   constructor(private httpClient: HttpClient) {}
 
   getLogs() {
-    return this.httpClient.get<Log[]>(this.address).pipe(
+    return this.httpClient.get<Log[]>(environment.apiAddress + this.address).pipe(
       map((res) => res),
       catchError((err) => err)
     );

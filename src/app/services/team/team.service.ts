@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
-import { Observable } from "rxjs";
 import { map, catchError } from "rxjs/operators";
 import { HttpClient } from "@angular/common/http";
+import { environment } from "../../../environments/environment";
 
 export type Person = {
   id?: number;
@@ -13,33 +13,33 @@ export type Person = {
   providedIn: "root",
 })
 export class TeamService {
-  private address: string = "http://localhost:8080/roles";
+  private address: string = "/roles";
 
   constructor(private httpClient: HttpClient) {}
 
   getTeam() {
-    return this.httpClient.get<Person[]>(this.address).pipe(
+    return this.httpClient.get<Person[]>(environment.apiAddress + this.address).pipe(
       map((res) => res),
       catchError((err) => err)
     );
   }
 
   addPerson(person: Person) {
-    return this.httpClient.post<Person>(this.address, person).pipe(
+    return this.httpClient.post<Person>(environment.apiAddress + this.address, person).pipe(
       map((res) => res),
       catchError((err) => err)
     );
   }
 
   updatePerson(person: Person) {
-    return this.httpClient.put<Person>(this.address, person).pipe(
+    return this.httpClient.put<Person>(environment.apiAddress + this.address, person).pipe(
       map((res) => res),
       catchError((err) => err)
     );
   }
 
   deletePerson(id: number) {
-    return this.httpClient.delete<number>(this.address + `/${id}`).pipe(
+    return this.httpClient.delete<number>(environment.apiAddress + this.address + `/${id}`).pipe(
       map((res) => res),
       catchError((err) => err)
     );
