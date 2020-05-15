@@ -4,6 +4,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 You can find the backend in this [link](https://github.com/pedroarvellos/playing-with-angular-part2-backend).
 
+Note: Make sure you configure the backend previously according to the guide in the backend README.md file. Later, in the frontend, change in the environment file the address of the backend your docker services will be running. 
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
